@@ -1,0 +1,21 @@
+.font(@family: arial, @weight: normal, @style: normal){
+    @font-face{
+        font-family: @family;
+        src:url('../font/@{family}.ttf') format('truetype');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+
+
+//Return cover dimensions based on container max width
+.coverHeight(@containerMaxWidth) {
+    @coverDimension: (@containerMaxWidth * 78 / 100);
+    height: (ceil(@coverDimension) * 1px);
+}
+
+.coverMarginTop(@containerMaxWidth) {
+    @coverDimension: (@containerMaxWidth * 78 / 100);
+    @coverOffset: ((@coverDimension - @containerMaxWidth) / 2);
+    margin-top: (ceil(@coverOffset) * 1px);
+}

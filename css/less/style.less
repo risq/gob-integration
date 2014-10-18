@@ -1,24 +1,42 @@
 // out: ../style.css, compress: false, strictMath: true
+@import "mixin.less";
 
-main {
+.font("Gotham_Light");
+.font("Gotham_Book");
+.font("Gotham_Medium");
+
+@darkGrey:   #1f2226;
+@mediumGrey: #74797f;
+@lightGrey:  #c7c7cc;
+
+html, body {
+    font-family: "Gotham_Book";
+    color: @darkGrey;
     width: 100%;
+}
 
-    .header-container {
+#main {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    #header-container {
         position: relative;
         width: 100%;
-        padding: 0 40px;
+        padding: 0 70px;
         box-sizing: border-box;
+        overflow: hidden;
 
         .header-column {
-
             height: 158px;
 
             &.column-left,
             &.column-right {
-                width: 40px;
+                width: 70px;
                 position: absolute;
                 top: 0;
-                background-color: red;
+                bottom: 0;
+//                background-color: red;
             }
 
             &.column-left {
@@ -30,9 +48,151 @@ main {
             }
 
             &.column-main {
-//                padding: 0 40px;
+                display: table;
                 width: 100%;
+                text-align: center;
+                
+                .music-infos {
+                    display: table-cell;
+                    vertical-align: middle;
+                    
+                    .music-title {
+                        font-family: "Gotham_Medium";
+                        font-size: 36px;
+                        color: @darkGrey;
+                    }
+
+                    .music-artist {
+                        font-family: "Gotham_Book";
+                        font-size: 24px;
+                        color: @mediumGrey;
+                    }
+
+                    .music-album {
+                        font-family: "Gotham_Book";
+                        font-size: 24px;
+                        color: @lightGrey;
+                    }
+                }
+            }
+        }
+    }
+    
+    #covers-container {
+        height: 500px;
+        width: 100%;
+        position: relative;
+        
+        .cover {
+            position: absolute;
+            width: 100%;
+            height: 500px;
+            text-align: center; 
+            
+            &.cover-prev {
+                opacity: .3;
+                left: auto;
+                right: 540px;
+            }
+            
+            &.cover-playing img {
+                box-shadow: 0px 20px 80px 0px rgba(50, 50, 50, 0.15);
+            }
+            
+            &.cover-next {
+                opacity: .3;
+                left: 540px;
+                right: auto;                
+            }
+            
+            .helper {
+                display: none;
+            }
+            
+            img {
+                vertical-align: middle;
+                height: 100%;
+                width: auto;
+                border-radius: 20px;
+            }
+        }
+    }
+    
+    #infos-container {
+        margin: 70px auto 0;
+        width: 500px;
+    }
+}
+
+#sidebar {
+    display: none;
+}
+
+@media all and (max-width: 639px) {
+   #main #covers-container {
+       width: 99%;
+       .coverHeight(640); //500px
+       
+       .cover {
+            height: 640px;
+            .coverMarginTop(640); //-70px
+            
+            &.cover-prev {
+                left: -84%;
+                right: auto;
+            }
+                        
+            &.cover-next {
+                left: auto;
+                right: -84%;                
+            }
+            
+            .helper {
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+            }
+            
+            img {
+                width: 78%;
+                height: auto;
             }
         }
     }
 }
+
+@media all and (max-width: 550px) {
+   #main #covers-container {
+        .coverHeight(550);
+       
+        .cover {
+            height: 550px;
+            .coverMarginTop(550);
+        }
+    }
+}
+
+@media all and (max-width: 480px) {
+   #main #covers-container {
+        .coverHeight(480);
+       
+        .cover {
+            height: 480px;
+            .coverMarginTop(480);
+        }
+    }
+}
+
+@media all and (max-width: 340px) {
+   #main #covers-container {
+        .coverHeight(340);
+       
+        .cover {
+            height: 340px;
+            .coverMarginTop(340);
+        }
+    }
+}
+
+
+
