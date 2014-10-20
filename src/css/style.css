@@ -83,6 +83,11 @@ body {
   color: #c7c7cc;
   margin-top: 6px;
 }
+#main #header-container .header-column.column-main .music-infos .music-album.main-title {
+  font-size: 36px;
+  font-family: "Gotham_Medium";
+  color: #1f2226;
+}
 #main #covers-container {
   height: 500px;
   width: 100%;
@@ -192,6 +197,50 @@ body {
 #main #infos-container #controls-container ul#controls li.control:hover {
   background-color: #dbdbde;
   color: #000000;
+}
+#main #album-infos-container {
+  margin: 0 30px;
+  height: 170px;
+  position: relative;
+}
+#main #album-infos-container .cover-container {
+  width: 170px;
+  overflow: hidden;
+}
+#main #album-infos-container .cover-container img {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+}
+#main #album-infos-container .infos-container {
+  position: absolute;
+  left: 170px;
+  top: 0;
+  bottom: 0;
+  padding-left: 20px;
+}
+#main #album-infos-container .infos-container .album-title {
+  font-family: "Gotham_Medium";
+  font-size: 36px;
+  color: #1f2226;
+  margin: 0;
+}
+#main #album-infos-container .infos-container .album-artist {
+  font-family: "Gotham_Book";
+  font-size: 24px;
+  color: #74797f;
+  margin: 8px 0 0;
+}
+#main #album-infos-container .infos-container .album-year {
+  font-family: "Gotham_Light";
+  font-size: 24px;
+  color: #c7c7cc;
+  margin: 12px 0 0;
+}
+#main #album-infos-container .infos-container .play-mode {
+  font-family: "Gotham_Medium";
+  font-size: 24px;
+  margin-top: 16px;
 }
 #sidebar {
   display: none;
