@@ -283,9 +283,73 @@ html, body {
     }
 }
 
+#playlist-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 328px;
+    bottom: 100px;
+}
+
 #sidebar {
     display: none;
 }
+
+.list {
+    margin: 0;
+    padding: 0 30px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    
+    list-style: none;
+    font-size: 26px;
+        
+    .list-item {
+        height: 88px;
+        line-height: 88px;
+        border-bottom: 1px solid @lighterGrey;
+    }
+    
+    &.list-playlist {
+        span {
+            float: left;   
+        }
+        
+        .track-id {
+            display: inline-block;
+            margin-right: 14px;
+            float: left;
+            width: 48px;
+            text-align: center;
+            
+            .track-number {
+                font-style: normal;
+            }
+            .icon-volume-off {
+                display: none;
+            }
+        }
+        
+        .track-length {
+            float: right;
+        }
+        
+        .list-item.playing {
+            .track-id {
+                .track-number {
+                    display: none;
+                }
+                .icon-volume-off {
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+
+
 
 @media all and (max-width: 639px) {
    #main #covers-container {
@@ -352,6 +416,3 @@ html, body {
         }
     }
 }
-
-
-
