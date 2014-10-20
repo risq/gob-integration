@@ -22,263 +22,263 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: hidden;
+}
 
-    #header-container {
-        position: relative;
+#header-container {
+    position: relative;
+    width: 100%;
+    padding: 0 70px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .header-column {
+        height: 158px;
+
+        &.column-left,
+        &.column-right {
+            width: 70px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            line-height: 158px;
+            font-size: 3em;
+            overflow: hidden;
+            color: @darkerGrey;
+        }
+
+        &.column-left {
+            left: 0;
+            text-align: right;
+        }
+
+        &.column-right {
+            right: 0;
+            text-align: left;
+        }
+
+        &.column-main {
+            display: table;
+            width: 100%;
+            text-align: center;
+
+            .music-infos {
+                display: table-cell;
+                vertical-align: middle;
+
+                .music-title {
+                    font-family: "Gotham_Medium";
+                    font-size: 36px;
+                    color: @darkerGrey;
+                }
+
+                .music-artist {
+                    font-family: "Gotham_Book";
+                    font-size: 24px;
+                    color: @mediumGrey;
+                    margin-top: 3px;
+                }
+
+                .music-album {
+                    font-family: "Gotham_Book";
+                    font-size: 24px;
+                    color: @lightGrey;
+                    margin-top: 6px;
+
+                    &.main-title {
+                        font-size: 36px;
+                        font-family: "Gotham_Medium";
+                        color: @darkerGrey;   
+                    }
+                }
+            }
+        }
+    }
+}
+
+#covers-container {
+    height: 500px;
+    width: 100%;
+    position: relative;
+
+    .cover {
+        position: absolute;
         width: 100%;
-        padding: 0 70px;
-        box-sizing: border-box;
-        overflow: hidden;
+        height: 500px;
+        text-align: center; 
 
-        .header-column {
-            height: 158px;
+        &.cover-prev {
+            opacity: .3;
+            left: auto;
+            right: 540px;
+        }
 
-            &.column-left,
-            &.column-right {
-                width: 70px;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                line-height: 158px;
-                font-size: 3em;
-                overflow: hidden;
-                color: @darkerGrey;
-            }
+        &.cover-playing img {
+            box-shadow: 0px 20px 80px 0px rgba(50, 50, 50, 0.15);
+        }
 
-            &.column-left {
+        &.cover-next {
+            opacity: .3;
+            left: 540px;
+            right: auto;                
+        }
+
+        .helper {
+            display: none;
+        }
+
+        img {
+            vertical-align: middle;
+            height: 100%;
+            width: auto;
+            border-radius: 20px;
+        }
+    }
+}
+
+#infos-container {
+    margin: 70px auto 0;
+    width: 80%;
+    max-width: 500px;
+
+    #playerbar-infos-container {
+        position: relative;
+        height: 32px;
+
+        .time {
+            position: absolute;
+            top: 0;
+            width: 88px;
+            font-size: 24px;
+            line-height: 32px;
+            color: @darkGrey;
+            font-family: "Gotham_Medium";
+
+            &.elapsed-time {
                 left: 0;
-                text-align: right;
-            }
-
-            &.column-right {
-                right: 0;
                 text-align: left;
             }
 
-            &.column-main {
-                display: table;
-                width: 100%;
-                text-align: center;
-                
-                .music-infos {
-                    display: table-cell;
-                    vertical-align: middle;
-                    
-                    .music-title {
-                        font-family: "Gotham_Medium";
-                        font-size: 36px;
-                        color: @darkerGrey;
-                    }
-
-                    .music-artist {
-                        font-family: "Gotham_Book";
-                        font-size: 24px;
-                        color: @mediumGrey;
-                        margin-top: 3px;
-                    }
-
-                    .music-album {
-                        font-family: "Gotham_Book";
-                        font-size: 24px;
-                        color: @lightGrey;
-                        margin-top: 6px;
-                        
-                        &.main-title {
-                            font-size: 36px;
-                            font-family: "Gotham_Medium";
-                            color: @darkerGrey;   
-                        }
-                    }
-                }
+            &.remaining-time {
+                right: 0;
+                text-align: right;
             }
         }
-    }
-    
-    #covers-container {
-        height: 500px;
-        width: 100%;
-        position: relative;
-        
-        .cover {
-            position: absolute;
+
+        .playerbar-container {
             width: 100%;
-            height: 500px;
-            text-align: center; 
-            
-            &.cover-prev {
-                opacity: .3;
-                left: auto;
-                right: 540px;
-            }
-            
-            &.cover-playing img {
-                box-shadow: 0px 20px 80px 0px rgba(50, 50, 50, 0.15);
-            }
-            
-            &.cover-next {
-                opacity: .3;
-                left: 540px;
-                right: auto;                
-            }
-            
-            .helper {
-                display: none;
-            }
-            
-            img {
-                vertical-align: middle;
+            height: 32px;
+            padding: 13px 88px;
+            box-sizing: border-box;
+
+
+            .bar {
+                background-color: @lighterGrey;
+                width: 100%;
                 height: 100%;
-                width: auto;
-                border-radius: 20px;
+                position: relative;
+                cursor: pointer;
+
+                .cursor {
+                    position: absolute;
+                    height: 26px;
+                    width: 3px;
+                    top: -10px;
+                    left: 25%;
+                    background-color: @darkerGrey;
+                }
             }
+
+
         }
     }
-    
-    #infos-container {
-        margin: 70px auto 0;
-        width: 80%;
-        max-width: 500px;
 
-        #playerbar-infos-container {
-            position: relative;
-            height: 32px;
+    #controls-container {
+        ul#controls {
+            display: table;
+            list-style: none;
+            margin: 70px 0;
+            padding: 0;
+            width: 100%;
 
-            .time {
-                position: absolute;
-                top: 0;
-                width: 88px;
-                font-size: 24px;
-                line-height: 32px;
-                color: @darkGrey;
-                font-family: "Gotham_Medium";
+            li.control {
+                display: table-cell;
+                text-align: center;
+                padding: 6px 0;
+                font-size: 1.8em;
+                vertical-align: middle;
+                color: @darkerGrey;
+                cursor: pointer;
+                transition: all .2s ease-in-out;
 
-                &.elapsed-time {
-                    left: 0;
-                    text-align: left;
+                &.big {
+                    font-size: 3.2em;
                 }
 
-                &.remaining-time {
-                    right: 0;
-                    text-align: right;
-                }
-            }
-
-            .playerbar-container {
-                width: 100%;
-                height: 32px;
-                padding: 13px 88px;
-                box-sizing: border-box;
-
-
-                .bar {
-                    background-color: @lighterGrey;
-                    width: 100%;
-                    height: 100%;
-                    position: relative;
-                    cursor: pointer;
-
-                    .cursor {
-                        position: absolute;
-                        height: 26px;
-                        width: 3px;
-                        top: -10px;
-                        left: 25%;
-                        background-color: @darkerGrey;
-                    }
-                }
-
-
-            }
-        }
-
-        #controls-container {
-            ul#controls {
-                display: table;
-                list-style: none;
-                margin: 70px 0;
-                padding: 0;
-                width: 100%;
-
-                li.control {
-                    display: table-cell;
-                    text-align: center;
-                    padding: 6px 0;
-                    font-size: 1.8em;
-                    vertical-align: middle;
-                    color: @darkerGrey;
-                    cursor: pointer;
-                    transition: all .2s ease-in-out;
-
-                    &.big {
-                        font-size: 3.2em;
-                    }
-
-                    &.disabled {
-                        color: @lighterGrey;
-
-                        &:hover {
-                            color: @mediumGrey;
-                        }
-                    }
+                &.disabled {
+                    color: @lighterGrey;
 
                     &:hover {
-                        background-color: @lighterGrey;
-                        color: @black;
+                        color: @mediumGrey;
                     }
+                }
+
+                &:hover {
+                    background-color: @lighterGrey;
+                    color: @black;
                 }
             }
         }
     }
-    
-    #album-infos-container {
-        margin: 0 30px;
-        height: 170px;
-        position: relative;
-        
-        .cover-container {
-            width: 170px;
-            overflow: hidden;
-            
-            img {
-                width: 160px;
-                height: 160px;
-                border-radius: 10px;
-            }
+}
+
+#album-infos-container {
+    margin: 0 30px;
+    height: 170px;
+    position: relative;
+
+    .cover-container {
+        width: 170px;
+        overflow: hidden;
+
+        img {
+            width: 160px;
+            height: 160px;
+            border-radius: 10px;
         }
-        
-        .infos-container {
-            position: absolute;
-            left: 170px;
-            top: 0;
-            bottom: 0;
-            padding-left: 20px;
-            
-            .album-title {
-                font-family: "Gotham_Medium";
-                font-size: 36px;
-                color: @darkerGrey;
-                margin: 0;
-            }
+    }
 
-            .album-artist {
-                font-family: "Gotham_Book";
-                font-size: 24px;
-                color: @mediumGrey;
-                margin: 8px 0 0;
-            }
+    .infos-container {
+        position: absolute;
+        left: 170px;
+        top: 0;
+        bottom: 0;
+        padding-left: 20px;
 
-            .album-year {
-                font-family: "Gotham_Light";
-                font-size: 24px;
-                color: @lightGrey;
-                margin: 12px 0 0;
-            }
-            
-            .play-mode {
-                font-family: "Gotham_Medium";
-                font-size: 24px;
-                margin-top: 16px;
-            }
+        .album-title {
+            font-family: "Gotham_Medium";
+            font-size: 36px;
+            color: @darkerGrey;
+            margin: 0;
+        }
+
+        .album-artist {
+            font-family: "Gotham_Book";
+            font-size: 24px;
+            color: @mediumGrey;
+            margin: 8px 0 0;
+        }
+
+        .album-year {
+            font-family: "Gotham_Light";
+            font-size: 24px;
+            color: @lightGrey;
+            margin: 12px 0 0;
+        }
+
+        .play-mode {
+            font-family: "Gotham_Medium";
+            font-size: 24px;
+            margin-top: 16px;
         }
     }
 }
