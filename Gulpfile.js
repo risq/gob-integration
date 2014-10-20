@@ -33,6 +33,7 @@ gulp.task('less', function() {
     .pipe(plugins.concat('style.css'))
     .pipe(plugins.less())
     .pipe(plugins.minifyCss())
+    .pipe(plugins.autoprefixer())
     .pipe(gulp.dest(paths.dist.css));
 });
  
@@ -45,6 +46,8 @@ gulp.task('js', function() {
 
 gulp.task('css', function() {
   gulp.src(paths.cssLibs)
+    .pipe(plugins.minifyCss())
+    .pipe(plugins.autoprefixer())
     .pipe(gulp.dest(paths.dist.css));
 });
 
@@ -65,7 +68,7 @@ gulp.task('html', function() {
 
  
 gulp.task('watch', function() {
-  gulp.watch(paths.less, ['less', 'dist']);
+  gulp.watch(paths.less, ['less']);
   console.log('watching directory:' + paths.less.join(', '));
   
   gulp.watch(paths.js, ['js', 'dist']);
